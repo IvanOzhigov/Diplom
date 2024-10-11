@@ -116,32 +116,43 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 Создаем инфраструктуру используя terraform 
 
 ССЫЛКА НА ФАЙЛ
-[Файл pkt](https://github.com/IvanOzhigov/10-01-hw/blob/pkt/hsrp_advanced.pkt)
+
+[Файл pkt](https://github.com/IvanOzhigov/Diplom/blob/main/infrastructure.tf)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/1.png)
 
 Получаем 6 ВМ: 2 Вебсервера, Kibana, Zabbix, Bastion host, Elasticsearch.
 
-КАРТИНКА ВМ
-![alt text](https://github.com/IvanOzhigov/8-01-hw/blob/assets/1.png)
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/2.png)
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/3.png)
 
 Создаем Target Group
 
-КАРТИНКА
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/11.png)
 
 Создаем Backend Group
 
-КАРТИНКА
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/12.png)
 
 Создаем HTTP router
 
-КАРТИНКА
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/13.png)
 
 Создаем Application load balancer
 
-КАРТИНКА
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/14.png)
 
-curl -v  84.201.180.130:80
+curl -v  84.201.180.130:80  (Сейчас не работает)
+
+Карта балансировки:
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/15.png)
 
 ## Сеть
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/4.png)
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/17.png)
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/19.png)
 
 Развернули один VPC 
 
@@ -157,17 +168,27 @@ curl -v  84.201.180.130:80
 
 Настройки Security Groups
 
-КАРТИНКА
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/5.png)
+Балансировщик:
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/6.png)
+Без ограничений для подсетей:
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/7.png)
+bastion host подключение по ssh:
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/8.png)
+Kibana:
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/9.png)
+Zabbix:
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/10.png)
 
 
 ## Резервное копировани
 
-КАРТИНКА
-
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/16.png)
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/20.png)
 
 Теперь к проблемам, почему-то не доступны вебсервера и балансировщик судя по всему тоже (скорее всего дело в нем): 
 
-КАРТИНКА
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/18.png)
 
 Сможете подсказать направление куда смотреть?
 
