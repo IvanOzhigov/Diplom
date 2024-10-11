@@ -117,7 +117,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ССЫЛКА НА ФАЙЛ
 
-[Файл pkt](https://github.com/IvanOzhigov/Diplom/blob/main/infrastructure.tf)
+[Файлы terraform](https://github.com/IvanOzhigov/Diplom/blob/main/terraform)
 
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/1.png)
 
@@ -150,21 +150,17 @@ curl -v  84.201.180.130:80  (Сейчас не работает)
 
 ## Сеть
 
-![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/4.png)
-![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/17.png)
+
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/19.png)
 
 Развернули один VPC 
 
-КАРТИНКА
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/17.png)
 
 Сервера web, Elasticsearch поместили в приватную подсеть
+Сервера Zabbix, Kibana, bastion в публичную подсеть
 
-КАРТИНКА
-
-Сервера Zabbix, Kibana, application load balancer в публичную подсеть
-
-КАРТИНКА
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/4.png)
 
 Настройки Security Groups
 
