@@ -113,36 +113,63 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ## Инфраструктура
 
-Создаем инфраструктуру используя terraform ССЫЛКА НА ФАЙЛ
+Создаем инфраструктуру используя terraform 
+
+ССЫЛКА НА ФАЙЛ
+[Файл pkt](https://github.com/IvanOzhigov/10-01-hw/blob/pkt/hsrp_advanced.pkt)
 
 Получаем 6 ВМ: 2 Вебсервера, Kibana, Zabbix, Bastion host, Elasticsearch.
 
 КАРТИНКА ВМ
+![alt text](https://github.com/IvanOzhigov/8-01-hw/blob/assets/1.png)
 
-
-Target Group
-
-КАРТИНКА
-
- Backend Group
+Создаем Target Group
 
 КАРТИНКА
 
-HTTP router
+Создаем Backend Group
 
 КАРТИНКА
 
-Application load balancer
+Создаем HTTP router
 
 КАРТИНКА
+
+Создаем Application load balancer
+
+КАРТИНКА
+
+curl -v  84.201.180.130:80
 
 ## Сеть
 
+Развернули один VPC 
+
+КАРТИНКА
+
+Сервера web, Elasticsearch поместили в приватную подсеть
+
+КАРТИНКА
+
+Сервера Zabbix, Kibana, application load balancer в публичную подсеть
+
+КАРТИНКА
+
+Настройки Security Groups
+
+КАРТИНКА
 
 
 ## Резервное копировани
 
+КАРТИНКА
 
+
+Теперь к проблемам, почему-то не доступны вебсервера и балансировщик судя по всему тоже (скорее всего дело в нем): 
+
+КАРТИНКА
+
+Сможете подсказать направление куда смотреть?
 
 
 
