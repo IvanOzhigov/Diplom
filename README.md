@@ -185,8 +185,8 @@ Zabbix:
 Теперь к проблемам, почему-то не доступны вебсервера и балансировщик судя по всему тоже (скорее всего дело в нем): 
 
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/18.png)
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/21.png)
 
-Сможете подсказать направление куда смотреть?
 
 
 
