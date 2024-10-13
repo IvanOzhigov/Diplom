@@ -10,7 +10,7 @@ terraform {
 provider "yandex" {
   token     = "    " # OAuth-токен яндекса
   cloud_id  = "    "
-  folder_id = "    b"
+  folder_id = "    "
 }
 
 
@@ -47,6 +47,7 @@ resource "yandex_compute_instance" "vm-webserver1" {
   }
 }
 
+
 # ВМ для Веб сервера 2
 
 resource "yandex_compute_instance" "vm-webserver2" {
@@ -79,6 +80,7 @@ resource "yandex_compute_instance" "vm-webserver2" {
   }
 }
 
+
 #ВМ для bastion сервера
 
 resource "yandex_compute_instance" "bastion-host" {
@@ -104,13 +106,14 @@ resource "yandex_compute_instance" "bastion-host" {
   network_interface {
     subnet_id          = yandex_vpc_subnet.subnet_general.id
     nat                = true
-    security_group_ids = [yandex_vpc_security_group.general.id, yandex_vpc_security_group.bastion_ssh.id]
+#security_group_ids = [yandex_vpc_security_group.general.id, yandex_vpc_security_group.bastion_ssh.id]
     ip_address         = "192.168.18.10"
   }
   metadata = {
     user-data = "${file("/home/ivanozhigov/github/diplom/terraform/key/meta.yml")}"
   }
 }
+
 
 # ВМ для Zabbix
 
@@ -145,6 +148,7 @@ resource "yandex_compute_instance" "vm-zabbix" {
   }
 }
 
+
 # ВМ для Elastic
 
 resource "yandex_compute_instance" "vm-elastic" {
@@ -169,7 +173,6 @@ resource "yandex_compute_instance" "vm-elastic" {
 
   network_interface {
     subnet_id          = yandex_vpc_subnet.subnet_bastion.id
-    nat                = true
     security_group_ids = [yandex_vpc_security_group.general.id]
     ip_address         = "192.168.17.10"
   }
@@ -177,6 +180,7 @@ resource "yandex_compute_instance" "vm-elastic" {
     user-data = "${file("/home/ivanozhigov/github/diplom/terraform/key/meta.yml")}"
   }
 }
+
 
 #ВМ для Kibana
 
@@ -211,18 +215,26 @@ resource "yandex_compute_instance" "vm-kibana" {
   }
 }
 
+
 # Создание общей сети
 
 resource "yandex_vpc_network" "vm_network" {
   name = "network"
 }
 
-resource "yandex_vpc_route_table" "nat" {
-  network_id = yandex_vpc_network.vm_network.id
 
+resource "yandex_vpc_gateway" "nat_gateway" {
+  name = "fops-gateway"
+  shared_egress_gateway {}
+}
+
+resource "yandex_vpc_route_table" "nat" {
+  name       = "fops-route-table"
+  network_id = yandex_vpc_network.vm_network.id
+  
   static_route {
     destination_prefix = "0.0.0.0/0"
-    next_hop_address   = "192.168.18.10"
+    gateway_id         = yandex_vpc_gateway.nat_gateway.id
   }
 }
 
@@ -273,12 +285,16 @@ resource "yandex_vpc_security_group" "general" {
   name       = "general"
   network_id = yandex_vpc_network.vm_network.id
   ingress {
-    protocol       = "Any"
-    v4_cidr_blocks = ["192.168.0.0/16"]
+    protocol       = "ANY"
+    v4_cidr_blocks = ["192.0.0.0/0"]
+    from_port      = 0
+    to_port        = 65535
   }
   egress {
-    protocol       = "Any"
+    protocol       = "ANY"
     v4_cidr_blocks = ["0.0.0.0/0"]
+    from_port      = 0
+    to_port        = 65535
   }
 }
 
@@ -299,6 +315,8 @@ resource "yandex_vpc_security_group" "bastion_ssh" {
   egress {
     protocol       = "ANY"
     v4_cidr_blocks = ["0.0.0.0/0"]
+    from_port      = 0
+    to_port        = 65535
   }
 }
 
@@ -316,7 +334,7 @@ resource "yandex_vpc_security_group" "zabbix" {
     protocol       = "TCP"
     v4_cidr_blocks = ["0.0.0.0/0"]
     port           = 10051
-  }
+  }  
   ingress {
     protocol       = "ICMP"
     v4_cidr_blocks = ["0.0.0.0/0"]
@@ -438,17 +456,6 @@ resource "yandex_alb_virtual_host" "my-virtual-host" {
   }
 }
 
-#Создание таблицы маршрутизации
-
-resource "yandex_vpc_route_table" "inner-to-nat" {
-  network_id = yandex_vpc_network.vm_network.id
-  static_route {
-    destination_prefix = "0.0.0.0/0"
-    next_hop_address   = "192.168.18.10"
-  }
-}
-
-
 #Создание балансировщика
 
 resource "yandex_alb_load_balancer" "my-balancer" {
@@ -488,9 +495,9 @@ resource "yandex_compute_snapshot_schedule" "snapshot" {
   schedule_policy {
     expression = "0 1 * * *"
   }
-
+  
   retention_period = "168h"
-
+  
   snapshot_spec {
     description = "everyday-snapshot"
   }
