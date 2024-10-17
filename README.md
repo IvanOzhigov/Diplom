@@ -115,8 +115,6 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 Создаем инфраструктуру используя terraform 
 
-ССЫЛКА НА ФАЙЛ
-
 [Файлы terraform](https://github.com/IvanOzhigov/Diplom/blob/main/terraform)
 
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/1.png)
@@ -142,11 +140,14 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/14.png)
 
-curl -v  84.201.180.130:80  (Сейчас не работает)
 
 Карта балансировки:
 
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/15.png)
+
+Проверка состояния:
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/24.png)
 
 ## Сеть
 
@@ -182,12 +183,48 @@ Zabbix:
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/16.png)
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/20.png)
 
-Теперь к проблемам, почему-то не доступны вебсервера и балансировщик судя по всему тоже (скорее всего дело в нем): 
+## Установка приложений
+Проверяем сервера ansible all -m ping
 
-![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/18.png)
-![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/21.png)
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/22.png)
 
+Устанавливаем nginx на веб сервера.
 
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/23.png)
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/25.png)
+
+curl -v  84.201.180.130:80  
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/26.png)
+
+Установка Zabbix 
+
+КАРТИНКА
+
+Установка Zabbix agent
+
+КАРТИНКА
+
+Настройка метрик Zabbix
+
+КАРТИНКА
+
+Установка Elasticsearch
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/27.png)
+
+Установка Kibana
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/28.png)
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/29.png)
+
+Установка filebeat
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/30.png)
+
+Логи в Kibana
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/31.png)
 
 
 
