@@ -166,15 +166,25 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 Настройки Security Groups
 
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/5.png)
+
 Балансировщик:
+
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/6.png)
+
 Без ограничений для подсетей:
+
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/7.png)
+
 bastion host подключение по ssh:
+
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/8.png)
+
 Kibana:
+
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/9.png)
+
 Zabbix:
+
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/10.png)
 
 
