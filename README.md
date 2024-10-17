@@ -213,7 +213,9 @@ curl -v  84.201.180.130:80
 
 Установка Zabbix agent
 
-КАРТИНКА
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/32.png)
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/33.png)
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/34.png)
 
 Настройка метрик Zabbix
 
@@ -237,6 +239,9 @@ curl -v  84.201.180.130:80
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/31.png)
 
 
-
+Проблема которая остается, не ставится Zabbix:
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/35.png)
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/36.png)
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/37.png)
 
    
