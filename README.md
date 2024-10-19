@@ -115,7 +115,7 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 Создаем инфраструктуру используя terraform 
 
-[Файл pkt](https://github.com/IvanOzhigov/Diplom/blob/main/infrastructure.tf)
+[Файлы terraform](https://github.com/IvanOzhigov/Diplom/blob/main/terraform)
 
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/1.png)
 
@@ -202,7 +202,7 @@ Zabbix:
 
 ## Установка
 
-[Файл pkt](https://github.com/IvanOzhigov/Diplom/blob/main/ansible)
+[Файл ansible](https://github.com/IvanOzhigov/Diplom/blob/main/ansible)
 
 ansible all -m ping
 
