@@ -160,15 +160,15 @@ curl -v  84.201.144.120:80
 
 Развернули один VPC 
 
-КАРТИНКА
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/2.png)
 
 Сервера web, Elasticsearch поместили в приватную подсеть
 
-КАРТИНКА
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/4.png)
 
 Сервера Zabbix, Kibana, application load balancer в публичную подсеть
 
-КАРТИНКА
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/4.png)
 
 Настройки Security Groups
 
@@ -212,6 +212,28 @@ ansible all -m ping
 
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/25.png)
 
+Установка zabbix
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/38.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/39.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/40.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/41.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/42.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/43.png)
+
+Установка zabbix agent
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/32.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/33.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/34.png)
+
 Установка Elasticsearch
 
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/27.png)
@@ -228,24 +250,6 @@ ansible all -m ping
 
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/31.png)
 
-Установка zabbix agent
 
-![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/32.png)
 
-![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/33.png)
 
-![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/34.png)
-
-Установка zabbix
-
-![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/38.png)
-
-![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/39.png)
-
-![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/40.png)
-
-![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/41.png)
-
-![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/42.png)
-
-![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/43.png)
