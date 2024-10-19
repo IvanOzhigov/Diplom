@@ -202,6 +202,8 @@ Zabbix:
 
 ## Установка
 
+[Файл pkt](https://github.com/IvanOzhigov/Diplom/blob/main/ansible)
+
 ansible all -m ping
 
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/22.png)
@@ -250,6 +252,12 @@ ansible all -m ping
 
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/31.png)
 
+## Для проверки
 
+Kibana: http://84.201.181.191:5601
+
+Zabbix: http://51.250.32.190/zabbix
+
+Webserver: http://84.201.144.120
 
 
