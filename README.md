@@ -115,8 +115,6 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 Создаем инфраструктуру используя terraform 
 
-ССЫЛКА НА ФАЙЛ
-
 [Файл pkt](https://github.com/IvanOzhigov/Diplom/blob/main/infrastructure.tf)
 
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/1.png)
@@ -142,7 +140,13 @@ Cоздайте ВМ, разверните на ней Elasticsearch. Устан
 
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/14.png)
 
-curl -v  84.201.180.130:80  (Сейчас не работает)
+curl -v  84.201.144.120:80  
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/26.png)
+
+Проверка состояния: 
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/24.png)
 
 Карта балансировки:
 
@@ -169,15 +173,25 @@ curl -v  84.201.180.130:80  (Сейчас не работает)
 Настройки Security Groups
 
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/5.png)
+
 Балансировщик:
+
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/6.png)
+
 Без ограничений для подсетей:
+
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/7.png)
+
 bastion host подключение по ssh:
+
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/8.png)
+
 Kibana:
+
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/9.png)
+
 Zabbix:
+
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/10.png)
 
 
@@ -186,14 +200,52 @@ Zabbix:
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/16.png)
 ![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/20.png)
 
-Теперь к проблемам, почему-то не доступны вебсервера и балансировщик судя по всему тоже (скорее всего дело в нем): 
+## Установка
 
-![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/18.png)
+ansible all -m ping
 
-Сможете подсказать направление куда смотреть?
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/22.png)
 
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/23.png)
 
+Установка nginx
 
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/25.png)
 
+Установка Elasticsearch
 
-   
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/27.png)
+
+Установка Kibana
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/28.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/29.png)
+
+Установка filebeat
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/30.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/31.png)
+
+Установка zabbix agent
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/32.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/33.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/34.png)
+
+Установка zabbix
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/38.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/39.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/40.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/41.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/42.png)
+
+![alt text](https://github.com/IvanOzhigov/Diplom/blob/scrin/43.png)
