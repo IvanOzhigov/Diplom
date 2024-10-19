@@ -1,0 +1,45 @@
+---
+- name: install zabbix agent
+  hosts: webservers
+  become: true
+  vars:
+    zabbix_server: 192.168.18.11
+  tasks:
+    - name: download zabbix
+      shell: wget https://repo.zabbix.com/zabbix/7.2/release/ubuntu/pool/main/z/zabbix-release/zabbix-release_latest+ubuntu24.04_all.deb
+      args:
+        chdir: /tmp
+
+    - name: install zabbix-agent
+      shell: dpkg -i zabbix-release_latest+ubuntu24.04_all.deb
+      args:
+        chdir: /tmp
+
+    - name: update
+      apt:
+        update_cache: yes
+
+    - name: install package
+      apt:
+        name:
+           - zabbix-agent
+        state: present
+
+    - name: dir log zabbix agent
+      command: mkdir -p /var/log/zabbix/
+      become_user: root
+
+    - name: chown log zabbix agent
+      command: chown zabbix /var/log/zabbix/
+      become_user: root
+
+    - name: copy config zabbix agent
+      template:
+        src: /home/ivanozhigov/github/diplom/ansible/zabbix_agentd.yml
+        dest: /etc/zabbix/zabbix_agentd.yml
+
+  handlers:
+    - name: restart zabbix-agent
+      service:
+        name: zabbix-agent
+        state: restarted

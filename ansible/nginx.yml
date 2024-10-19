@@ -1,0 +1,34 @@
+---
+- name: install nginx
+  hosts: webservers
+  become: yes
+
+  tasks:
+
+    - name: Nginx
+      apt:
+        name: nginx
+        state: latest
+        update_cache: yes
+
+    - name: launch nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name:  create html
+      copy:
+        content: "<html><head>><title>IvanOzhigov_Sdal_Diplom</title></head><body><p>IvanOzhigov_Sdal_Diplom<p>body></html>"
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+
+      notify:
+        - restart nginx
+
+  handlers:
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted

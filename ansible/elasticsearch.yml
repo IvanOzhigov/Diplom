@@ -1,0 +1,25 @@
+---
+- name: install elasticsearch
+  hosts: elastic
+  become: yes
+  gather_facts: true
+
+  tasks:
+  - name: install package elasticsearch
+    apt:
+      deb: "https://mirror.yandex.ru/mirrors/elastic/7/pool/main/e/elasticsearch/elasticsearch-7.17.9-amd64.deb"
+
+  - name: copy config elasticsearch
+    copy:
+      src: /home/ivanozhigov/github/diplom/ansible/elasticsearch.conf.yml
+      dest: /etc/elasticsearch/elasticsearch.yml
+
+  - name: daemon_reload
+    systemd:
+      daemon_reload: true
+
+  - name: restart elasticsearch
+    service:
+      name: elasticsearch
+      state: restarted
+      enabled: yes
