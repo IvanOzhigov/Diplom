@@ -254,9 +254,9 @@ ansible all -m ping
 
 ## Для проверки
 
-Kibana: http://84.201.181.191:5601
+Kibana: http://84.252.133.230:5601
 
-Zabbix: http://51.250.32.190/zabbix
+Zabbix: http://84.201.180.237/zabbix
 
 Webserver: http://84.201.144.120
 
